@@ -15,7 +15,8 @@
 
 <script>
     export default {
-        props: [''],
+        name: 'TodoItem',
+        props: ['todos'],
         methods: {
             checkTodo(){
                 this.todo.completed = !this.todo.completed;
@@ -24,7 +25,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .todo{
         border-bottom: solid 1px #ccc;
         padding: 10px;
