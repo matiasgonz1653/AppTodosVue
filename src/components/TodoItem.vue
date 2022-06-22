@@ -1,14 +1,14 @@
 <template>
-    <div class="todo" v-bind:class="{completed: todos.completed}">
+    <div class="todo" v-bind:class="{completed: todoLocal.completed}">
         <div class="todo-body" >
             <input type="checkbox" 
-                v-bind:checked="todos.completed ? 'checked': ''"
+                v-bind:checked="todoLocal.completed ? true : false"
                 v-on:change="checkTodo">
-            {{todos.title}}
+            {{todoLocal.title}}
         </div>
 
         <div class="todo-actions">
-            <button @click="$emit('delete-todo', todos.id)">Eliminar</button>
+            <button @click="$emit('delete-todo', todoLocal.id)">Eliminar</button>
         </div>
     </div>
 </template>
@@ -18,9 +18,14 @@
     export default {
         name: 'TodoItem',
         props: ['todos'],
+        data() {
+            return {
+                todoLocal: this.todos,
+            };
+        },
         methods: {
-            checkTodo(){
-                this.todo.completed = !this.todo.completed;
+            checkTodo() {
+                this.todoLocal.completed = !this.todoLocal.completed
             }
         }
     }
