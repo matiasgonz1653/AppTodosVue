@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'Search_',
+    name: 'Search-',
     data(){
         return {
             query: ''

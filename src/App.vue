@@ -1,27 +1,27 @@
 <template>
   <div>
     <div id="header">
-      <Search_ v-on:query-change="querySearch" />
+      <Search v-on:query-change="querySearch" />
     </div>
 
     <div id="main-container">
       <h2>Todos</h2>
       <TodoAdd v-on:add-todo="addTodo"/>
-      <Todos_ v-bind:todoslist="copyTodos" v-on:delete-todo="deleteTodo" />
+      <Todos v-bind:todoslist="copyTodos" v-on:delete-todo="deleteTodo" />
     </div>
   </div>
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
-import Search_ from './components/Search';
-import Todos_ from './components/Todos';
+import Search from './components/Search';
+import Todos from './components/Todos';
 import TodoAdd from './components/TodoAdd';
 
 export default {
   name: 'App',
   components: {
-    Todos_, TodoAdd, Search_
+    Todos, TodoAdd, Search
   },
   methods: {
     deleteTodo(id){
